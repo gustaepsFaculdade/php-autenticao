@@ -14,6 +14,9 @@
     {
       $permissoes = $this->_permissaoService->listar();
 
+      if (empty($permissoes))
+        return;
+
       foreach ($permissoes as $permissao) {
         echo "<option value='{$permissao['ID']}'>{$permissao['Descricao']}</option>";
       }

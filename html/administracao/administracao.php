@@ -37,18 +37,21 @@
 					</thead>
 					<tbody>
 						<?php
-							// chamar controller usuários método listar
+							$container = require __DIR__.'../../../index.php';
+
+							$controller = $container->get(APP\Controllers\UsuariosController::class);
+							$controller->listar();
 						?>
 					</tbody>
 				</table>
 			</div>
 			<div class="admFormulario">
 				<h2>Cadastre</h2>
-				<form action="">
+				<form action="../../assets/functions/processaFormCadastroUsuario.php"  id="formCadastroUsuario" name="frmCadastroUsuario" method="POST">
 					<fieldset class="cadastroUsuario">
 						<legend>Dados pessoais:</legend>
 						<label for = "nome">Nome:</label>
-						<input type="text" name="txtnome" id="nome">
+						<input require type="text" name="txtnome" id="nome">
 						<br>
 						<span id="erroNome"></span>
 
@@ -58,12 +61,16 @@
 						<span id="erroCpf"></span>
 
 						<label for="email">E-mail</label>
-						<input type="email" name="txtemail" id="email">
+						<input require type="email" name="txtemail" id="email">
 						<br>
 						<span id="erroEmail"></span>
 
+						<label for = "nome">Senha:</label>
+						<input require type="password" name="txtsenha" id="senha">
+						<br>
+
 						<label for="permissao">Permissão:</label>
-						<select name="selPermissao" id="permissao">
+						<select require name="selPermissao" id="permissao">
 							<option value="">Escolha</option>
 							
 							<?php								

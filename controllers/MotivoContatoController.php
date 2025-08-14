@@ -15,6 +15,10 @@
     {
       $motivos = $this->_motivoContatoService->listar();
 
+      if (empty($motivos))
+        return;
+
+
       foreach ($motivos as $motivo) {
         echo "<option value='{$motivo['ID']}'>{$motivo['Mensagem']}</option>";
       }

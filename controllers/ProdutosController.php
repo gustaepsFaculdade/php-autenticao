@@ -20,6 +20,9 @@
     public function listar() {
       $produtos = $this->_produtoService->listar();
 
+      if (empty($produtos))
+        return;
+
       foreach ($produtos as $produto) {
         echo "<tr>";
 
