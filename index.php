@@ -6,6 +6,7 @@
 
   use APP\Controllers\MotivoContatoController;
   use APP\Controllers\ProdutosController;
+  use APP\Controllers\PermissoesController;
 
   use APP\Services\MotivoContato\IMotivoContatoService;
   use APP\Services\MotivoContato\MotivoContatoService;
@@ -13,6 +14,8 @@
   use APP\Services\Produto\IProdutoService;
   use APP\Services\FaleConosco\IFaleConoscoService;
   use APP\Services\FaleConosco\FaleConoscoService;
+  use APP\Services\Permissao\PermissaoService;
+  use APP\Services\Permissao\IPermissaoService;
 
   use APP\Repositories\MotivoContato\IMotivoContatoRepository;
   use APP\Repositories\MotivoContato\MotivoContatoRepository;
@@ -20,6 +23,8 @@
   use APP\Repositories\Produto\IProdutoRepository;
   use APP\Repositories\FaleConosco\IFaleConoscoRepository;
   use APP\Repositories\FaleConosco\FaleConoscoRepository;
+  use APP\Repositories\Permissao\IPermissaoRepository;
+  use APP\Repositories\Permissao\PermissaoRepository;
   
   use APP\Repositories\Connections\MySql\IMySqlConnection;
   use APP\Repositories\Connections\MySql\MySqlConnection;
@@ -31,16 +36,19 @@
   $containerBuilder->addDefinitions([
     MotivoContatoController::class => autowire(),
     ProdutosController::class => autowire(),
+    PermissoesController::class => autowire(),
     
     StringFormats::class => autowire(),
 
     IMotivoContatoService::class => autowire(MotivoContatoService::class),
     IProdutoService::class => autowire(ProdutoService::class),
     IFaleConoscoService::class => autowire(FaleConoscoService::class),
+    IPermissaoService::class => autowire(PermissaoService::class),
 
     IMotivoContatoRepository::class => autowire(MotivoContatoRepository::class),
     IProdutoRepository::class => autowire(ProdutoRepository::class),
     IFaleConoscoRepository::class => autowire(FaleConoscoRepository::class),
+    IPermissaoRepository::class => autowire(PermissaoRepository::class),
 
     IMySqlConnection::class => autowire(MySqlConnection::class)
   ]);

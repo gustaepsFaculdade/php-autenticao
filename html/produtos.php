@@ -17,6 +17,7 @@
 		<a href="inicio.php"><div class="opcao">Início</div></a>
 		<a href="produtos.php"><div class="opcao">Geladeiras e Freezers</div></a>
 		<a href="faleConosco.php"><div class="opcao">Fale conosco</div></a>
+		<a href="administracao/administracao.php"><div class="opcao">Administração</div></a>
 	</nav> 
 	<section>
 		<form action="../assets/functions/removeRecursoListaFaleConosco.php" id="formListaFaleConosco" name="formListaFaleConosco" method="POST">
