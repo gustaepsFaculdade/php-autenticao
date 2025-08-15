@@ -3,6 +3,7 @@
   interface IUsuarioRepository
   {
     public function listar();
+    public function obterUsuarioPorLogin($login);
 
     public function inserir(
       $nome,

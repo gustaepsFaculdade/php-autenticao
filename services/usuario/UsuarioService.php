@@ -31,5 +31,10 @@
         $permissaoID,
         base64_encode($senha));
     }
+
+    public function validarAcesso($login, $senha)
+    {
+      
+    }
   }
 ?>

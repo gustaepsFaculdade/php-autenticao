@@ -66,5 +66,29 @@
         ':senha' => $senha
       ]);
     }
+
+    public function obterUsuarioPorLogin($login)
+    {
+      $sql = "SELECT
+                u.ID,
+                u.Nome,
+                u.DocumentoFederal,
+                u.Email,
+                p.Descricao,
+                u.Senha
+              FROM
+                Usuario u
+              INNER JOIN Permissao p
+                ON u.PermissaoID = p.ID
+              WHERE
+                u.DocumentoFederal = :loginPar
+              OR u.Email = :loginPar
+              LIMIT 1";
+
+      $stmt = $this->_mySqlConnection->conectar()->prepare($sql);
+      $stmt->execute([':loginPar' => $login]);
+
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
   }
 ?>

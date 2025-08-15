@@ -3,6 +3,7 @@
   interface IUsuarioService
   {
     public function listar();
+    public function validarAcesso($login, $senha);
     
     public function inserir(
       $nome,

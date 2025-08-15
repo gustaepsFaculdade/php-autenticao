@@ -47,7 +47,7 @@
 			</div>
 			<div class="admFormulario">
 				<h2>Cadastre</h2>
-				<form action="../../assets/functions/processaFormCadastroUsuario.php"  id="formCadastroUsuario" name="frmCadastroUsuario" method="POST">
+				<form action="../../assets/functions/processaFormCadastroUsuario.php" id="formCadastroUsuario" name="frmCadastroUsuario" method="POST">
 					<fieldset class="cadastroUsuario">
 						<legend>Dados pessoais:</legend>
 						<label for = "nome">Nome:</label>
@@ -75,6 +75,7 @@
 							
 							<?php								
 								$container = require __DIR__.'../../../index.php';
+								
 								$controller = $container->get(APP\Controllers\PermissoesController::class);
 								$controller->listar();
 							?>

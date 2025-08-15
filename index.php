@@ -8,6 +8,8 @@
   use APP\Controllers\ProdutosController;
   use APP\Controllers\PermissoesController;
   use APP\Controllers\UsuariosController;
+  use APP\Controllers\AutenticacoesController;
+
 
   use APP\Services\MotivoContato\IMotivoContatoService;
   use APP\Services\MotivoContato\MotivoContatoService;
@@ -43,6 +45,7 @@
     ProdutosController::class => autowire(),
     PermissoesController::class => autowire(),
     UsuariosController::class => autowire(),
+    AutenticacoesController::class => autowire(),
     
     StringFormats::class => autowire(),
 
