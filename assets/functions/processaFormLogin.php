@@ -11,5 +11,17 @@
   $login = $_POST['txtlogin']; 
   $senha = $_POST['txtsenha'];
 
-  $autenticacoesController->validarAcesso($login, $senha);
+  $responseLogin = $autenticacoesController->validarAcesso($login, $senha);
+
+  if (!$responseLogin->sucesso)
+  {
+    echo $responseLogin->mensagem;
+    return;
+  }
+
+  echo "<script>
+          localStorage.setItem('auth', '".json_encode($responseLogin)."');
+          window.location.href = '../../html/inicio.php';
+        </script>";
+  exit;       
 ?>

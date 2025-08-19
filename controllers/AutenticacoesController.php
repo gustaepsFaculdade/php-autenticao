@@ -1,6 +1,7 @@
 <?php namespace APP\Controllers;
 
   use APP\Services\Usuario\IUsuarioService;
+  use APP\Responses\Autenticacao\AutenticacaoResponse;
 
   class AutenticacoesController
   {
@@ -11,7 +12,7 @@
       $this->_usuarioService = $usuarioService;
     }
 
-    public function validarAcesso($login, $senha)
+    public function validarAcesso($login, $senha) : AutenticacaoResponse
     {
       return $this->_usuarioService->validarAcesso($login, $senha);
     }

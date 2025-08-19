@@ -20,6 +20,56 @@ function InserirValorInput(campo, novoValor) {
   document.getElementById(campo).value = novoValor
 }
 
+function ValidarToken(telaAdm) {
+  const token = localStorage.getItem('auth');
+  
+  if (!token) {
+    RedirecionarLogin(false);
+    return;
+  }
+
+  const decoded = parseJwt(token);
+  const now = Math.floor(Date.now() / 1000); 
+
+  if ((decoded && decoded.exp > now) === false) {
+    localStorage.removeItem('auth');
+    RedirecionarLogin(false)
+  }
+
+  if (decoded?.data?.permissao != 'Administrador') {
+    
+    if (telaAdm)
+      RedirecionarLogin(true);
+
+    document.getElementById('TabAdministracao').style.display = 'none';
+  } else {
+    document.getElementById('TabAdministracao').style.display = 'block';
+  }
+}
+
+function RedirecionarLogin(telaAdm) {
+  if (telaAdm)
+    window.location.href = "../login/login.php";
+
+  window.location.href = "../html/login/login.php";
+}
+
+function parseJwt(token) {
+  try {
+    const base64Url = token.split('.')[1]
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+    }).join(''));
+
+    return JSON.parse(jsonPayload)
+  } catch (e) {
+    return null;
+  }
+}
+
+
 $(document).ready(function () {
   $('#formFaleConosco').on('submit', function (e) {
     let cpf = $('#documento').val().trim()

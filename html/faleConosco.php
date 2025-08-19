@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="../assets/js/index.js" defer></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+<body onload="ValidarToken(false)">
 	<header>
 		<img src="../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
 		<h1>Fale Conosco</h1>
@@ -18,7 +18,7 @@
 		<a href="inicio.php"><div class="opcao">Início</div></a>
 		<a href="produtos.php"><div class="opcao">Geladeiras e Freezers</div></a>
 		<a href="faleConosco.php"><div class="opcao">Fale conosco</div></a>
-		<a href="administracao/administracao.php"><div class="opcao">Administração</div></a>
+		<a id="TabAdministracao" href="administracao/administracao.php"><div class="opcao">Administração</div></a>
 	</nav> 
 		<section>
 			<h2>Fale conosco!</h2>
