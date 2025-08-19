@@ -48,10 +48,18 @@ function ValidarToken(telaAdm) {
 }
 
 function RedirecionarLogin(telaAdm) {
-  if (telaAdm)
-    window.location.href = "../login/login.php";
+  RemoverToken()
 
-  window.location.href = "../html/login/login.php";
+  if (telaAdm){
+    window.location.href = "../login/login.php"
+    return
+  }
+
+ window.location.href = "../html/login/login.php"
+}
+
+function RemoverToken() {
+  localStorage.removeItem('auth')
 }
 
 function parseJwt(token) {

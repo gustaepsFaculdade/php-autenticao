@@ -12,6 +12,8 @@
   <header>
 		<img src="../../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
 		<h1>Administração</h1>
+
+		<a href="../login/login.php"><div>Sair</div></a>
 	</header>
 	<nav>
 		<a href="../inicio.php"><div class="opcao">Início</div></a>
