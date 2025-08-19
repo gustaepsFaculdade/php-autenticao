@@ -11,10 +11,18 @@
 <body onload="RemoverToken()">
   <div class="modalPrincipal">
     <h2>Faça o seu login!!</h2>
+
+    <?php if (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+      <div style="color: red; font-weight: bold;">
+        Usuário ou senha inválidos!
+      </div>
+      <br>
+    <?php endif; ?>
+
     <form action="../../assets/functions/processaFormLogin.php"  id="formLogin" name="frmLogin" method="POST">
 
       <fieldset class="loginAutenticacao">
-        <label for = "login">Email ou CPF:</label>
+        <label for = "login">Usuário:</label>
         <input require type="text" name="txtlogin" id="login">
         <br>
 

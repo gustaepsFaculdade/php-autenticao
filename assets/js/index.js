@@ -32,8 +32,10 @@ function ValidarToken(telaAdm) {
   const now = Math.floor(Date.now() / 1000); 
 
   if ((decoded && decoded.exp > now) === false) {
-    localStorage.removeItem('auth');
+    RemoverToken()
     RedirecionarLogin(false)
+
+    return
   }
 
   if (decoded?.data?.permissao != 'Administrador') {
@@ -45,6 +47,8 @@ function ValidarToken(telaAdm) {
   } else {
     document.getElementById('TabAdministracao').style.display = 'block';
   }
+
+  InserirValoresIniciais(decoded?.data)
 }
 
 function RedirecionarLogin(telaAdm) {
@@ -77,6 +81,10 @@ function parseJwt(token) {
   }
 }
 
+function InserirValoresIniciais(data) {
+  document.getElementById("nomeUsuario").textContent = data?.nome;
+  document.getElementById("permissaoUsuario").textContent = data?.permissao;
+}
 
 $(document).ready(function () {
   $('#formFaleConosco').on('submit', function (e) {

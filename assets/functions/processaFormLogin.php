@@ -15,8 +15,8 @@
 
   if (!$responseLogin->sucesso)
   {
-    echo $responseLogin->mensagem;
-    return;
+    header("Location: ../../html/login/login.php?erro=1");
+    exit;
   }
 
   echo "<script>

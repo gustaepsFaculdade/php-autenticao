@@ -13,7 +13,13 @@
 		<img src="../../assets/imgs/logo.png" alt="Logo da página" title="Logo da página">
 		<h1>Administração</h1>
 
-		<a href="../login/login.php"><div>Sair</div></a>
+		<div class="perfil-info">
+			<p>Informações de perfil</p>
+			<p><b>Nome: </b><span id="nomeUsuario"></span></p>
+			<p><b>Permissão: </b><span id="permissaoUsuario"></span></p>
+			
+			<a href="..	/login/login.php">Log out</a>
+  	</div>
 	</header>
 	<nav>
 		<a href="../inicio.php"><div class="opcao">Início</div></a>
